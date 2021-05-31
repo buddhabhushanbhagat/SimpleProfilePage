@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>My Site</title>
+<style>
+.nav {
+	background-color: yellow;
+	text-align: center;
+}
+
+.nav li {
+	display: inline-block;
+	font-size: 20px;
+	padding: 20px;
+}
+
+img {
+	float: left;
+	height: 200px;
+	width: 150px;
+}
+
+.info {
+	text-align: center;
+}
+/* h1,h2,h3 {
+margin-left:20px;
+} */
+</style>
+
+</head>
+<body>
+	<ul class="nav">
+		<li id="#home"><a href="home.html">Home</a></li>
+		<li id="#about"><a href="about.html">About</a></li>
+		<li id="#contact"><a href="contact.html">Contact</a></li>
+		<li id="#services"><a href="services.html">Services</a></li>
+
+	</ul>
+
+	<img alt="profile-img" src="photo.JPG" style="border-style: solid" />
+	<ul class="info">
+
+		<h1>
+			Name:
+			<div id="fname" style="display: inline;"></div>
+			<div id="lname" style="display: inline;"></div>
+		</h1>
+		<br>
+		<h2>Role: Engineer</h2>
+		<h2 style="display: inline;">College:</h2>
+		<h3 style="display: inline;" id ="college"></h3>
+		<br>
+		<h2 style="display: inline;">Projects:</h2>
+
+		<li style="display: inline;"><h3 style="display: inline;">1.
+				Student Management system using PHP,HTML,CSS</h3></li>
+		<li style="display: inline;"><h3>2. Forest Hazard detection
+				and monitoring system using IOT</h3></li>
+		<li style="display: inline;"><h3>3. Grocery app, while will
+				save human efforts</h3></li>
+	</ul>
+
+	<script>
+		function getParams() {
+			var idx = document.URL.indexOf('?');
+			var params = new Array();
+			if (idx != -1) {
+				var pairs = document.URL
+						.substring(idx + 1, document.URL.length).split('&');
+				for (var i = 0; i < pairs.length; i++) {
+					nameVal = pairs[i].split('=');
+					params[nameVal[0]] = nameVal[1];
+				}
+			}
+			return params;
+		}
+		params = getParams();
+		fname = unescape(params["fname"]);
+		lname = unescape(params["lname"]);
+		college = unescape(params["college"]);
+		document.getElementById("fname").innerHTML = fname;
+		document.getElementById("lname").innerHTML = lname;
+		document.getElementById("college").innerHTML = college;
+	</script>
+</body>
+</html>
